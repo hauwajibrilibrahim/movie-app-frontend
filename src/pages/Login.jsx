@@ -75,6 +75,7 @@ function Login() {
         <p className="text-center mt-4 text-sm text-gray-600">
           Don’t have an account? <a href="/register" className="text-indigo-600 font-medium">Register</a>
         </p>
+
       </form>
     </div>
   );
