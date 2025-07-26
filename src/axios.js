@@ -1,8 +1,11 @@
 import axios from 'axios';
 
-const instance = axios.create({
-  baseURL: 'https://movie-muse.onrender.com', 
-  withCredentials: false, 
+const api = axios.create({
+  baseURL: import.meta.env.VITE_API_URL || 'https://movie-muse.onrender.com/api',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  withCredentials: true,
 });
 
-export default instance;
+export default api;
