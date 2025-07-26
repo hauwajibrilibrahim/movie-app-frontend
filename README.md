@@ -1,10 +1,10 @@
-# 🎬 Movie Recommendation App - Frontend
+# 🎬 MovieMuse - A Movie Recommendation App 
 
 This is the frontend of the Movie Recommendation App built using **React**, **Vite**, and **Tailwind CSS**. Users can browse, search, save, and get personalized movie recommendations based on their preferences.
 
 ## 🌐 Live URL
 
-[https://your-vercel-app.vercel.app](https://movieemuse.vercel.app) 
+[https://movieemuse.vercel.app]
 
 ---
 
