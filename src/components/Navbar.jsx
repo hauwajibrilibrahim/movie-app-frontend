@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { ChevronDown } from 'lucide-react';
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -15,9 +16,16 @@ function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           {/* Logo */}
-          <div className="flex-shrink-0">
-            <Link to="/" className="text-2xl font-bold text-white">
-              🎬 MovieMuse
+          <div className="flex-shrink-0 flex items-center">
+            <Link to="/" className="flex items-center space-x-2">
+              <img
+                src="/logo.png"
+                alt="MovieMuse Logo"
+                className="w-10 h-10 rounded-xl object-cover"
+              />
+              <span className="text-xl font-bold text-white hidden sm:inline">
+                MovieMuse
+              </span>
             </Link>
           </div>
 
@@ -25,10 +33,16 @@ function Navbar() {
           <div className="hidden md:flex space-x-6 items-center">
             <Link to="/" className="hover:text-gray-300">Home</Link>
             <div className="relative group">
-              <button className="focus:outline-none font-medium">
-                My Library ⌄
+              <button
+                className="flex items-center gap-1 font-medium focus:outline-none"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                My Library
+                <ChevronDown size={16} className="transition-transform group-hover:rotate-180 duration-300" />
               </button>
-              <div className="absolute hidden group-hover:block mt-2 bg-white text-gray-900 rounded-md shadow-md min-w-[150px]">
+
+              <div className="absolute hidden group-hover:block mt-2 bg-white text-gray-900 rounded-md shadow-md min-w-[150px] z-50">
                 <Link
                   to="/favorites"
                   className="block px-4 py-2 hover:bg-gray-100"
