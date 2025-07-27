@@ -9,6 +9,7 @@ import MovieDetail from './pages/MovieDetail';
 import Favorites from './pages/Favorites';
 import Watchlist from './pages/Watchlist';
 import Profile  from './pages/Profile';
+import InstallPWA from './components/installPWA';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -31,8 +32,10 @@ function App() {
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/watchlist" element={<Watchlist />} />
         </Routes>
+        <InstallPWA />
       </div>
     </Router>
+    
   );
 }
 
