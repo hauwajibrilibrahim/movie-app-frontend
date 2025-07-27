@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import axios from '../axios';
 import toast, { Toaster } from 'react-hot-toast';
 
 function MovieDetail() {
@@ -38,10 +38,10 @@ function MovieDetail() {
 
     const fetchReviews = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/user/reviews/${id}`);
+        const res = await axios.get(`/user/reviews/${id}`);
         setAllReviews(res.data.reviews);
         if (token) {
-          const userRes = await axios.get(`http://localhost:5000/api/user/my-review/${id}`, {
+          const userRes = await axios.get(`/user/my-review/${id}`, {
             headers: { Authorization: `Bearer ${token}` },
           });
           setUserReview(userRes.data.review);
@@ -62,7 +62,7 @@ function MovieDetail() {
     if (!token) return toast.error('Please log in first');
     try {
       const res = await axios.post(
-        'http://localhost:5000/api/user/favorites',
+        '/user/favorites',
         {
           movieId: movie.id,
           title: movie.title,
@@ -80,7 +80,7 @@ function MovieDetail() {
     if (!token) return toast.error('Please log in first');
     try {
       const res = await axios.post(
-        'http://localhost:5000/api/user/watchlist',
+        '/user/watchlist',
         {
           movieId: movie.id,
           title: movie.title,
@@ -98,7 +98,7 @@ function MovieDetail() {
     if (!token) return toast.error('Login to review');
     try {
       const res = await axios.post(
-        'http://localhost:5000/api/user/review',
+        '/user/review',
         {
           movieId: movie.id,
           movieTitle: movie.title,
@@ -117,12 +117,12 @@ function MovieDetail() {
   const handleDelete = async (reviewId) => {
     if (!window.confirm('Delete this review?')) return;
     try {
-      await axios.delete(`http://localhost:5000/api/user/review/${reviewId}`, {
+      await axios.delete(`/user/review/${reviewId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setReviewText('');
       setUserReview(null);
-      const updated = await axios.get(`http://localhost:5000/api/user/reviews/${id}`);
+      const updated = await axios.get(`/user/reviews/${id}`);
       setAllReviews(updated.data.reviews);
     } catch (err) {
       console.error(err);

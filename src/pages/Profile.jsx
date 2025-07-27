@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import axios from '../axios';
 import { FaStar } from 'react-icons/fa';
 
 function Profile() {
@@ -21,10 +21,10 @@ function Profile() {
 
       try {
         const [profileRes, reviewsRes] = await Promise.all([
-          axios.get('http://localhost:5000/api/user/profile', {
+          axios.get('/user/profile', {
             headers: { Authorization: `Bearer ${token}` },
           }),
-          axios.get('http://localhost:5000/api/user/reviews', {
+          axios.get('/user/reviews', {
             headers: { Authorization: `Bearer ${token}` },
           }),
         ]);
@@ -43,7 +43,7 @@ function Profile() {
 
   const handleDelete = async (reviewId) => {
     try {
-      await axios.delete(`http://localhost:5000/api/user/review/${reviewId}`, {
+      await axios.delete(`/user/review/${reviewId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setReviews(reviews.filter((r) => r._id !== reviewId));
@@ -61,7 +61,7 @@ function Profile() {
   const handleSaveEdit = async () => {
     try {
       const res = await axios.put(
-        `http://localhost:5000/api/user/review/${editingReviewId}`,
+        `/user/review/${editingReviewId}`,
         { reviewText: editText, starRating: editRating },
         { headers: { Authorization: `Bearer ${token}` } }
       );

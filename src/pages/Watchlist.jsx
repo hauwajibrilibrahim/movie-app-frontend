@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import axios from '../axios';
 import { Link } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -20,7 +20,7 @@ function Watchlist() {
       }
 
       try {
-        const res = await axios.get('http://localhost:5000/api/user/watchlist', {
+        const res = await axios.get('/user/watchlist', {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -60,7 +60,7 @@ function Watchlist() {
     const token = localStorage.getItem('token');
     setLoadingId(movieId);
     try {
-      await axios.delete(`http://localhost:5000/api/user/watchlist/${movieId}`, {
+      await axios.delete(`/user/watchlist/${movieId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setWatchlist(watchlist.filter((movie) => movie.movieId !== movieId));
