@@ -9,7 +9,7 @@ import MovieDetail from './pages/MovieDetail';
 import Favorites from './pages/Favorites';
 import Watchlist from './pages/Watchlist';
 import Profile  from './pages/Profile';
-import InstallPWA from '../components/InstallPWA';
+import InstallPWA from './components/InstallPWA';
 
 function App() {
   const [user, setUser] = useState(null);
