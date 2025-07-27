@@ -65,8 +65,11 @@ function Profile() {
         { reviewText: editText, starRating: editRating },
         { headers: { Authorization: `Bearer ${token}` } }
       );
+
+      const updatedReview = res.data.review;
+
       setReviews(
-        reviews.map((r) => (r._id === editingReviewId ? res.data : r))
+        reviews.map((r) => (r._id === editingReviewId ? updatedReview : r))
       );
       setEditingReviewId(null);
       setEditText('');
@@ -75,6 +78,7 @@ function Profile() {
       alert('Failed to update review.');
     }
   };
+
 
   if (message) {
     return <p className="text-center text-red-500 mt-10">{message}</p>;

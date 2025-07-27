@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import axios from '../axios';
 import { Link } from 'react-router-dom';
 
 const RecommendedMovies = () => {
@@ -17,7 +17,7 @@ const RecommendedMovies = () => {
       }
 
       try {
-        const res = await axios.get('http://localhost:5000/api/recommendations', {
+        const res = await axios.get('/recommendations', {
           headers: {
             Authorization: `Bearer ${token}`,
           },

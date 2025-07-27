@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import axios from 'axios';
+import axios from '../axios';
 
 const ReviewCard = ({ review, token, onUpdate, onDelete }) => {
   const [isEditing, setIsEditing] = useState(false);
@@ -9,7 +9,7 @@ const ReviewCard = ({ review, token, onUpdate, onDelete }) => {
   const handleUpdate = async () => {
     try {
       const res = await axios.put(
-        `http://localhost:5000/api/user/review/${review._id}`,
+        `/user/review/${review._id}`,
         { reviewText: editedText, starRating: editedRating },
         { headers: { Authorization: `Bearer ${token}` } }
       );
