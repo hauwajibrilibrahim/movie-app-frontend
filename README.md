@@ -19,7 +19,7 @@ This is the frontend of the Movie Recommendation App built using **React**, **Vi
 - 🧑‍💼 Profile Page
 - 📱 Fully responsive design
 - 🌐 Deployed with Vercel
-
+- 📱 PWA Implementation
 ---
 
 ## 🛠️ Technologies Used
