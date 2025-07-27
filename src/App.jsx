@@ -32,8 +32,8 @@ function App() {
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/watchlist" element={<Watchlist />} />
         </Routes>
-        <InstallPWA />
       </div>
+      <div><InstallPWA /></div>
     </Router>
     
   );

@@ -28,7 +28,10 @@ const InstallPWA = () => {
 
   return (
     showInstall && (
-      <button onClick={handleInstall} className="p-2 bg-blue-600 text-white rounded">
+      <button
+        onClick={handleInstall}
+        className="px-6 py-2 bg-black text-white rounded-2xl hover:bg-gray-900 transition duration-300 shadow-md"
+        >
         Install App
       </button>
     )
